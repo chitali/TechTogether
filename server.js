@@ -50,11 +50,9 @@ app.post('/forum/save', function (req, res) {
     c++;
   })
 
-app.get('/hotlines/audio', function (req, res) {
-  res.render('hotlines',{
-  });res.status(200);
-
-    
+app.get('/info', function (req, res) {
+  res.send({ text: c });
+  res.status(200);
     
 });
 app.get('*', function (req, res) {
@@ -101,6 +99,7 @@ function textToAudio(text, filename) {
       });
       console.log("Now synthesizing to: " + filename);    
       oldFile = filename;
+      console.log(c);
   }
 
   var text = "1-800-662-HELP (4357). AMHSA’s National Helpline is a confidential, free, 24-hour-a-day, 365-day-a-year, information service, in English and Spanish, for individuals and family members facing mental and/or substance use disorders. This service provides referrals to local treatment facilities, support groups, and community-based organizations. Callers can also order free publications and other information. Better Help Online. Better Help's hotline matches you to a counselor that can help with depression, stress, anxiety, self-esteem, anger, relationships, grief, and more. Fill out a questionnaire to help assess your needs and get matched to one of 15,000 licensed therapists. Message your counselor whenever and wherever through the linked website or mobile app. 1-800-273-TALK (8255). MentalHealth.gov provides mental health services to people who don’t know where to start. If you or someone you know is suicidal or in emotional distress, contact the National Suicide Prevention Lifeline. Trained crisis workers are available to talk 24 hours a day, 7 days a week. Your confidential and toll-free call goes to the nearest crisis center in the Lifeline national network. These centers provide crisis counseling and mental health referrals.";

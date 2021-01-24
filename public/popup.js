@@ -52,6 +52,14 @@ function clearFields(){
 }
 var count = 1;
 function textToAudio(event){
+    var count;
+    fetch('/info').then(function(response) {
+        response.text().then(function(text) {
+            var obj = JSON.parse(text);
+            count = obj.text;
+            console.log(count);
+     });
+    });
     var icon = this.children[0];
     icon.classList.remove('fa-volume-up');
     icon.classList.add('fa-spinner');
@@ -73,7 +81,6 @@ function textToAudio(event){
     window.setTimeout(function (){
         var audio = new Audio("message" + count.toString() +".wav");
         audio.play();
-        count++;
         icon.classList.add('fa-volume-up');
         icon.classList.remove('fa-spinner');
         icon.classList.remove('fa-pulse');
