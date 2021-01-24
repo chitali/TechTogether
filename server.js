@@ -69,9 +69,9 @@ app.listen(port, function () {
 });
 var oldFile ="";
 function textToAudio(text, filename) {
-  if(c != 1){
-    fs.unlinkSync(oldFile)
-  }
+  // if(c != 1){
+  //   fs.unlinkSync(oldFile)
+  // }
     console.log(text);
     "use strict";
     var sdk = require("microsoft-cognitiveservices-speech-sdk");
